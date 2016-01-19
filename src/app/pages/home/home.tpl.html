@@ -1,0 +1,9 @@
+<div class="well">
+    <h1>Home page</h1>
+    <div class="success">
+        <i class="fa fa-check"></i> {{ test }}
+    </div>
+    <div ng-class="{'success': apiTest, 'fail' : !apiTest}">
+        <i class="fa" ng-class="{'fa-check': apiTest, 'fa-exclamation' : !apiTest}"></i> API test should be ok after 5s timeout
+    </div>
+</div>

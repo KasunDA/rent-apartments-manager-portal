@@ -1,0 +1,12 @@
+$color-success: green;
+$color-fail: red;
+
+.success {
+  background-color: $color-success;
+  color: #fff;
+}
+
+.fail {
+  background-color: $color-fail;
+  color: #fff;
+}
