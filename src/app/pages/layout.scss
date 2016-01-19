@@ -1,0 +1,12 @@
+.success {
+  background-color: $color-success;
+  color: #fff;
+}
+
+.fail {
+  background-color: $color-fail;
+  color: #fff;
+}
+
+@import "home/home";
+@import "signIn/signIn";
