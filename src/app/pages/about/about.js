@@ -2,7 +2,7 @@ angular.module('app.pages.about', [
         'ui.router'
     ])
     .config(function config($stateProvider) {
-        $stateProvider.state('about', {
+        $stateProvider.state('pages.about', {
             url: '/about',
             controller: 'AboutController',
             templateUrl: 'pages/about/about.tpl.html',

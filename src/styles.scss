@@ -1,6 +1,6 @@
 $fa-font-path: "../assets/fonts" !default;
-
-@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../bower_components/font-awesome/scss/font-awesome";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import "app/pages/home/home";
+@import "app/pages/variables";
+@import "app/pages/layout";

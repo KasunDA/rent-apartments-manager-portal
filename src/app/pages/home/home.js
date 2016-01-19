@@ -3,12 +3,11 @@ angular.module('app.pages.home', [
         'app.api.testApiService'
     ])
     .config(function config($stateProvider) {
-        $stateProvider.state('home', {
+        $stateProvider.state('pages.home', {
             url: '/',
             controller: 'HomeController',
             templateUrl: 'pages/home/home.tpl.html',
-            resolve: {
-            },
+            resolve: {},
             data: {
                 pageTitle: 'Home',
                 pageClass: 'home'
@@ -19,9 +18,9 @@ angular.module('app.pages.home', [
         function HomeController($scope, $timeout, testApiService) {
             $scope.test = "Angular is working";
 
-            $timeout(function() {
+            $timeout(function () {
                 testApiService.testApi()
-                    .success(function(data) {
+                    .success(function (data) {
                         $scope.apiTest = data;
                     });
             }, 5000);
