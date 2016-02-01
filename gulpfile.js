@@ -4,17 +4,16 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     cssnano = require('gulp-cssnano'),
     uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     del = require('del');
-bower = require('gulp-bower');
-server = require('gulp-server-livereload');
-wiredep = require('wiredep')().js;
-ngAnnotate = require('gulp-ng-annotate');
-plumber = require('gulp-plumber');
+    bower = require('gulp-bower');
+    server = require('gulp-server-livereload');
+    wiredep = require('wiredep')();
+    ngAnnotate = require('gulp-ng-annotate');
+    plumber = require('gulp-plumber');
 
 var config = {
     appPath: './src/app',
@@ -25,6 +24,18 @@ var config = {
 
 // Styles
 gulp.task('styles', function () {
+    gulp.src(wiredep.css)
+        .pipe(plumber(function (error) {
+            console.log(error.message);
+            this.emit('end');
+        }))
+        .pipe(sass({
+            errLogToConsole: true
+        }))
+        .pipe(rename({basename: 'vendor', suffix: '.min'}))
+        .pipe(cssnano())
+        .pipe(gulp.dest('dist/styles'));
+
     return gulp.src(config.srcPath + '/styles.scss')
         .pipe(plumber(function (error) {
             console.log(error.message);
@@ -52,7 +63,7 @@ gulp.task('icons', function () {
 
 // Scripts
 gulp.task('scripts', function () {
-    gulp.src(wiredep)
+    gulp.src(wiredep.js)
         .pipe(plumber(function (error) {
             console.log(error.message);
             this.emit('end');
@@ -83,7 +94,6 @@ gulp.task('images', function () {
             console.log(error.message);
             this.emit('end');
         }))
-        .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true})))
         .pipe(gulp.dest('dist/images'));
 });
 

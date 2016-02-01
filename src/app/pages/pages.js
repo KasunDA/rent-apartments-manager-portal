@@ -2,7 +2,8 @@ angular.module('app.pages', [
         'app.pages.signIn',
         'app.pages.home',
         'app.pages.about',
-        'app.pages.users'
+        'app.pages.users',
+        'app.pages.apartments'
     ])
     .config(function config($stateProvider) {
         $stateProvider.state('pages', {

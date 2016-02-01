@@ -1,10 +1,12 @@
 angular.module('app', [
         'ui.router',
         'ngCookies',
-        'app.pages'
+        'app.pages',
+        'angular-loading-bar'
+
     ])
     .constant("envConfig", {
-        "baseApiUrl": "http://localhost:5000/"
+        "baseApiUrl": "http://40.113.108.255:5000/"
     })
     .config(function myAppConfig($urlRouterProvider) {
         $urlRouterProvider.otherwise('/');

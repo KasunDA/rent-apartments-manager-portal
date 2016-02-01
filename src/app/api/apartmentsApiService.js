@@ -1,35 +1,35 @@
-angular.module('app.api.usersApiService', [])
-    .service('usersApiService',
+angular.module('app.api.apartmentsApiService', [])
+    .service('apartmentsApiService',
         function ($q, $http, envConfig) {
-            var baseUrl = envConfig.baseApiUrl + 'users';
+            var baseUrl = envConfig.baseApiUrl + 'apartments';
 
-            this.getAllUsers = function() {
+            this.getAllApartments = function() {
                 return $http({
                     method: 'GET',
                     url: baseUrl
                 })
             };
 
-            this.getUserById = function(id) {
+            this.getApartmentById = function(id) {
                 return $http({
                     method: 'GET',
                     url: baseUrl + '/' + id
                 })
             };
 
-            this.createUser = function(user) {
+            this.createApartment = function(apartment) {
               return $http({
                   method: 'POST',
                   url: baseUrl,
-                  data: user
+                  data: apartment
               })
             };
 
-            this.editUser = function(user) {
+            this.editApartment = function(apartment) {
                 return $http({
                     method: 'PUT',
-                    url: baseUrl + '/' + user.id,
-                    data: user
+                    url: baseUrl + '/' + apartment.id,
+                    data: apartment
                 })
             }
         }
