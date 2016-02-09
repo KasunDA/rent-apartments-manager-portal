@@ -31,6 +31,13 @@ angular.module('app.api.roomsApiService', [])
                     url: baseUrl + '/' + room.id,
                     data: room
                 })
-            }
+            };
+
+            this.removeRoom = function(id) {
+                return $http({
+                    method: 'DELETE',
+                    url: baseUrl + '/' + id
+                })
+            };
         }
     );

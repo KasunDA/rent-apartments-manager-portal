@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{editMode ? "Edit bill type: " + room.name : "Add bill type"}}</h3>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label for="billTypeNameInput">Bill type name</label>
+        <input type="text" class="form-control" id="billTypeNameInput" placeholder="Bill type name" ng-model="billType.name">
+    </div>
+    <div class="form-group">
+        <label for="billTypeChargeable">Chargeable (paid by homeowner)</label>
+        <input type="checkbox" class="form-control" id="billTypeChargeable" ng-model="billType.chargeable">
+    </div>
+    <div class="form-group">
+        <label for="billTypeShouldCalculate">Should calculate</label>
+        <input type="checkbox" class="form-control" id="billTypeShouldCalculate" ng-model="billType.should_calculate">
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="saveChanges()">{{editMode ? "Save" : "Add"}}</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,39 +1,39 @@
-angular.module('app.api.apartmentsApiService', [])
-    .service('apartmentsApiService',
+angular.module('app.api.rentCalculationsApiService', [])
+    .service('rentCalculationsApiService',
         function ($q, $http, envConfig) {
-            var baseUrl = envConfig.baseApiUrl + 'apartments';
+            var baseUrl = envConfig.baseApiUrl + 'rent_calculations';
 
-            this.getAllApartments = function() {
+            this.getAllRentCalculations = function() {
                 return $http({
                     method: 'GET',
                     url: baseUrl
                 })
             };
 
-            this.getApartmentById = function(id) {
+            this.getRentCalculationById = function(id) {
                 return $http({
                     method: 'GET',
                     url: baseUrl + '/' + id
                 })
             };
 
-            this.createApartment = function(apartment) {
+            this.createRentCalculation = function(rentCalculation) {
               return $http({
                   method: 'POST',
                   url: baseUrl,
-                  data: apartment
+                  data: rentCalculation
               })
             };
 
-            this.editApartment = function(apartment) {
+            this.editRentCalculation = function(rentCalculation) {
                 return $http({
                     method: 'PUT',
-                    url: baseUrl + '/' + apartment.id,
-                    data: apartment
+                    url: baseUrl + '/' + rentCalculation.id,
+                    data: rentCalculation
                 })
             };
 
-            this.removeApartment = function(id) {
+            this.removeRentCalculation = function(id) {
                 return $http({
                     method: 'DELETE',
                     url: baseUrl + '/' + id

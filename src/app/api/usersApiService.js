@@ -31,6 +31,13 @@ angular.module('app.api.usersApiService', [])
                     url: baseUrl + '/' + user.id,
                     data: user
                 })
-            }
+            };
+
+            this.removeUser = function(id) {
+                return $http({
+                    method: 'DELETE',
+                    url: baseUrl + '/' + id
+                })
+            };
         }
     );

@@ -71,7 +71,7 @@ gulp.task('scripts', function () {
         .pipe(concat('vendor.js'))
         //.pipe(gulp.dest('dist/scripts'))
         .pipe(rename({suffix: '.min'}))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('dist/scripts'));
 
     gulp.src([config.srcPath + '/app.js', config.appPath + '/**/*.js'])

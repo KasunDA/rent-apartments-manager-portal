@@ -1,0 +1,33 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{editMode ? "Edit user: " + user.firstName + ' ' + user.lastName : "Add user"}}</h3>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label for="firstNameInput">First name</label>
+        <input type="text" class="form-control" id="firstNameInput" placeholder="First name" ng-model="user.firstName">
+    </div>
+    <div class="form-group">
+        <label for="lastNameInput">Last name</label>
+        <input type="text" class="form-control" id="lastNameInput" placeholder="Last name" ng-model="user.lastName">
+    </div>
+    <div class="form-group">
+        <label for="emailInput">E-mail</label>
+        <input type="email" class="form-control" id="emailInput" placeholder="E-mail" ng-model="user.email">
+    </div>
+    <div class="form-group">
+        <label for="telNumberInput">Telephone number</label>
+        <input type="text" class="form-control" id="telNumberInput" placeholder="Telephone number" ng-model="user.telephoneNumber">
+    </div>
+    <div class="form-group">
+        <label for="roomInput">Room</label> {{user.room_id}}
+        <select class="form-control" id="roomInput" name="room_id" ng-model="user.room_id">
+            <option ng-repeat="room in rooms" value="{{room.id}}">
+                {{room.name}} ({{room.apartment.location}})
+            </option>
+        </select>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="saveChanges()">{{editMode ? "Save" : "Add"}}</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

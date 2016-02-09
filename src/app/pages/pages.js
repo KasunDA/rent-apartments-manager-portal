@@ -3,7 +3,10 @@ angular.module('app.pages', [
         'app.pages.home',
         'app.pages.about',
         'app.pages.users',
-        'app.pages.apartments'
+        'app.pages.apartments',
+        'app.pages.billTypes',
+        'app.pages.rentCalculations',
+        'ui.bootstrap'
     ])
     .config(function config($stateProvider) {
         $stateProvider.state('pages', {
