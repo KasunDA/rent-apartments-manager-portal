@@ -1,39 +1,39 @@
-angular.module('app.api.usersApiService', [])
-    .service('usersApiService',
+angular.module('app.api.billTypesApiService', [])
+    .service('billTypesApiService',
         function ($q, $http, envConfig) {
-            var baseUrl = envConfig.baseApiUrl + 'users';
+            var baseUrl = envConfig.baseApiUrl + 'bill_types';
 
-            this.getAllUsers = function() {
+            this.getAllBillTypes = function() {
                 return $http({
                     method: 'GET',
                     url: baseUrl
                 })
             };
 
-            this.getUserById = function(id) {
+            this.getBillTypeById = function(id) {
                 return $http({
                     method: 'GET',
                     url: baseUrl + '/' + id
                 })
             };
 
-            this.createUser = function(user) {
+            this.createBillType = function(billType) {
               return $http({
                   method: 'POST',
                   url: baseUrl,
-                  data: user
+                  data: billType
               })
             };
 
-            this.editUser = function(user) {
+            this.editBillType = function(billType) {
                 return $http({
                     method: 'PUT',
-                    url: baseUrl + '/' + user.id,
-                    data: user
+                    url: baseUrl + '/' + billType.id,
+                    data: billType
                 })
             };
 
-            this.removeUser = function(id) {
+            this.removeBillType = function(id) {
                 return $http({
                     method: 'DELETE',
                     url: baseUrl + '/' + id

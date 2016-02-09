@@ -1,39 +1,39 @@
-angular.module('app.api.usersApiService', [])
-    .service('usersApiService',
+angular.module('app.api.roomsApiService', [])
+    .service('roomsApiService',
         function ($q, $http, envConfig) {
-            var baseUrl = envConfig.baseApiUrl + 'users';
+            var baseUrl = envConfig.baseApiUrl + 'rooms';
 
-            this.getAllUsers = function() {
+            this.getAllRooms = function() {
                 return $http({
                     method: 'GET',
                     url: baseUrl
                 })
             };
 
-            this.getUserById = function(id) {
+            this.getRoomById = function(id) {
                 return $http({
                     method: 'GET',
                     url: baseUrl + '/' + id
                 })
             };
 
-            this.createUser = function(user) {
+            this.createRoom = function(room) {
               return $http({
                   method: 'POST',
                   url: baseUrl,
-                  data: user
+                  data: room
               })
             };
 
-            this.editUser = function(user) {
+            this.editRoom = function(room) {
                 return $http({
                     method: 'PUT',
-                    url: baseUrl + '/' + user.id,
-                    data: user
+                    url: baseUrl + '/' + room.id,
+                    data: room
                 })
             };
 
-            this.removeUser = function(id) {
+            this.removeRoom = function(id) {
                 return $http({
                     method: 'DELETE',
                     url: baseUrl + '/' + id

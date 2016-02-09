@@ -1,39 +1,39 @@
-angular.module('app.api.usersApiService', [])
-    .service('usersApiService',
+angular.module('app.api.chargesApiService', [])
+    .service('chargesApiService',
         function ($q, $http, envConfig) {
-            var baseUrl = envConfig.baseApiUrl + 'users';
+            var baseUrl = envConfig.baseApiUrl + 'charges';
 
-            this.getAllUsers = function() {
+            this.getAllCharges = function() {
                 return $http({
                     method: 'GET',
                     url: baseUrl
                 })
             };
 
-            this.getUserById = function(id) {
+            this.getChargeById = function(id) {
                 return $http({
                     method: 'GET',
                     url: baseUrl + '/' + id
                 })
             };
 
-            this.createUser = function(user) {
+            this.createCharge = function(charge) {
               return $http({
                   method: 'POST',
                   url: baseUrl,
-                  data: user
+                  data: charge
               })
             };
 
-            this.editUser = function(user) {
+            this.editCharge = function(charge) {
                 return $http({
                     method: 'PUT',
-                    url: baseUrl + '/' + user.id,
-                    data: user
+                    url: baseUrl + '/' + charge.id,
+                    data: charge
                 })
             };
 
-            this.removeUser = function(id) {
+            this.removeCharge = function(id) {
                 return $http({
                     method: 'DELETE',
                     url: baseUrl + '/' + id

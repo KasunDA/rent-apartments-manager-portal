@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-sm-12 text-right menu-bar">
+            <button type="button" class="btn btn-success" ng-click="apartmentForm()"><i class="fa fa-plus"></i> Add apartment</button>
+        </div>
+        <div class="col-sm-12" ng-repeat="apartment in apartments">
+            <div class="well">
+                <div class="pull-right">
+                    <i class="fa fa-pencil" ng-click="apartmentForm(apartment)"></i>
+                    <i class="fa fa-trash" ng-click="removeApartment(apartment)"></i>
+                </div>
+                <h1>{{apartment.location}}</h1>
+
+
+                <a ng-init="roomsVisible = false" ng-click="roomsVisible = !roomsVisible" class="text-center">{{roomsVisible ? 'Hide rooms' : 'Show rooms'}} <i class="fa" ng-class="{'fa-chevron-down' : !roomsVisible, 'fa-chevron-up': roomsVisible}"></i></a>
+                <div ng-show="roomsVisible">
+                    <div class="panel panel-primary" ng-repeat="room in apartment.rooms">
+                        <div class="panel-heading">
+                            {{room.name}}
+                            <div class="pull-right">
+                                <i class="fa fa-pencil" ng-click="roomForm(room, apartment)"></i>
+                                <i class="fa fa-trash" ng-click="removeRoom(room)"></i>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                <li ng-repeat="tenant in room.tenants">
+                                    {{tenant.firstName}} {{tenant.lastName}} ({{tenant.balance}} PLN)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" class="btn pull-right" ng-click="roomForm(null, apartment)"><i class="fa fa-plus"></i> Add room</button>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

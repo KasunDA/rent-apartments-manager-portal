@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-12">
-        <button type="button" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add user</button>
+        <button type="button" class="btn btn-success pull-right" ng-click="userForm()"><i class="fa fa-plus"></i> Add user</button>
         <table class="table table-striped table-hover">
             <thead>
             <tr>
@@ -16,16 +16,16 @@
             </thead>
             <tbody>
             <tr ng-repeat="user in users">
-                <td ui-sref="pages.usersDetails({id: user.id})">{{user.id}}</td>
-                <td ui-sref="pages.usersDetails({id: user.id})">{{user.firstName}}</td>
-                <td ui-sref="pages.usersDetails({id: user.id})">{{user.lastName}}</td>
-                <td ui-sref="pages.usersDetails({id: user.id})">{{user.room.name}}</td>
-                <td ui-sref="pages.usersDetails({id: user.id})">0,00 PLN</td>
-                <td ui-sref="pages.usersDetails({id: user.id})">{{user.email}}</td>
-                <td ui-sref="pages.usersDetails({id: user.id})">{{user.telephoneNumber}}</td>
+                <td>{{user.id}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.room.name}}</td>
+                <td>{{user.balance}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.telephoneNumber}}</td>
                 <td>
-                    <i class="fa fa-pencil"></i>
-                    <i class="fa fa-trash"></i>
+                    <i class="fa fa-pencil" ng-click="userForm(user)"></i>
+                    <i class="fa fa-trash" ng-click="removeUser(user)"></i>
                 </td>
             </tr>
             </tbody>

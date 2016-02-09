@@ -8,5 +8,20 @@
   color: #fff;
 }
 
+.layout-navbar {
+  padding-left: 2rem;
+}
+
+.menu-bar {
+  margin-bottom: 1rem;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @import "home/home";
 @import "signIn/signIn";
+@import "apartments/apartments";
+@import "rentCalculations/rentCalculations";
