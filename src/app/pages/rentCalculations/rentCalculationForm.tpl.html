@@ -14,27 +14,6 @@
             </option>
         </select>
     </div>
-
-    <h3>Bills</h3>
-    <div class="form-group" ng-repeat="bill in billTypes">
-        <label for="apartmentInput">{{bill.name}}</label>
-        <input type="checkbox" ng-model="bill.selected" />
-        <table class="table" ng-show="bill.selected">
-            <thead>
-                <th>Amount</th>
-                <th>Notes</th>
-                <th>Is paid</th>
-            </thead></th>
-            <tbody>
-                <tr>
-                    <td><input type="number" ng-model="bill.amount"></td>
-                    <td><input type="text" ng-model="bill.notes" placeholder="Notes"></td>
-                    <td><input type="checkbox" ng-model="bill.paid"></td>
-                </tr>
-            </tbody>
-
-        </table>
-    </div>
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="saveChanges()">{{editMode ? "Save" : "Add"}}</button>
