@@ -6,8 +6,8 @@ angular.module('app', [
 
     ])
     .constant("envConfig", {
-        //"baseApiUrl": "http://40.113.108.255:5000/"
-        "baseApiUrl": "http://localhost:5000/"
+        "baseApiUrl": "http://40.113.108.255:5000/"
+        //"baseApiUrl": "http://localhost:5000/"
     })
     .config(function myAppConfig($urlRouterProvider) {
         $urlRouterProvider.otherwise('/');

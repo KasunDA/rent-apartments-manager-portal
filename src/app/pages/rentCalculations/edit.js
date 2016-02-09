@@ -1,4 +1,4 @@
-angular.module('app.pages.rentCalculations.edit', [])
+angular.module('app.pages.rentCalculations.edit', ['cfp.loadingBar'])
     .config(function config($stateProvider) {
         $stateProvider.state('pages.rentCalculationEdit', {
             url: '/rentCalculations/:id',
@@ -22,7 +22,7 @@ angular.module('app.pages.rentCalculations.edit', [])
         });
     })
     .controller('RentCalculationsEditController',
-        function RentCalculationsEditController($scope, $q, $state, rentCalculation, billTypes, apartment, rentCalculationsApiService, billsApiService, chargesApiService) {
+        function RentCalculationsEditController($scope, $q, $state, rentCalculation, billTypes, apartment, rentCalculationsApiService, billsApiService, chargesApiService, cfpLoadingBar) {
             $scope.apartment = apartment.data;
             $scope.rentCalculation = rentCalculation.data;
 
@@ -85,6 +85,7 @@ angular.module('app.pages.rentCalculations.edit', [])
                 rentCalculationsApiService.editRentCalculation($scope.rentCalculation).success(function () {
                     var promises = [];
                     var defer = $q.defer();
+                    cfpLoadingBar.start();
 
                     $scope.charges.forEach(function (charge) {
                         if (charge.id && !charge.selected) {
@@ -107,6 +108,7 @@ angular.module('app.pages.rentCalculations.edit', [])
                     });
 
                     $q.all(promises).then(function() {
+                        cfpLoadingBar.complete();
                         $state.reload();
                     });
                 });
