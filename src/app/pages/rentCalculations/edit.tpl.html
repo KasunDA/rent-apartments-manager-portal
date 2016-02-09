@@ -7,52 +7,57 @@
                 <input type="text" class="form-control" id="notesInput" placeholder="Notes"
                        ng-model="rentCalculation.notes">
             </div>
+            <div class="row">
+                <div class="col-lg-5 col-sm-12">
+                    <h3>Bills</h3>
+                    <div class="form-group" ng-repeat="bill in bills">
+                        <label for="bill-type-{{bill.bill_type.id}}">{{bill.bill_type.name}}</label>
+                        <input type="checkbox" ng-model="bill.selected" id="bill-type-{{bill.bill_type.id}}"/>
+                        <table class="table" ng-show="bill.selected">
+                            <thead>
+                            <th>Amount</th>
+                            <th>Notes</th>
+                            <th>Is paid</th>
+                            </thead>
+                            </th>
+                            <tbody>
+                            <tr>
+                                <td><input type="number" ng-model="bill.amount" ng-disabled="bill.paid"></td>
+                                <td><input type="text" ng-model="bill.notes" placeholder="Notes"></td>
+                                <td><input type="checkbox" ng-model="bill.paid" ng-disabled="bill.disabled"></td>
+                            </tr>
+                            </tbody>
 
-            <h3>Bills</h3>
-            <div class="form-group" ng-repeat="bill in bills">
-                <label for="bill-type-{{bill.bill_type.id}}">{{bill.bill_type.name}}</label>
-                <input type="checkbox" ng-model="bill.selected" id="bill-type-{{bill.bill_type.id}}"/>
-                <table class="table" ng-show="bill.selected">
-                    <thead>
-                    <th>Amount</th>
-                    <th>Notes</th>
-                    <th>Is paid</th>
-                    </thead>
-                    </th>
-                    <tbody>
-                    <tr>
-                        <td><input type="number" ng-model="bill.amount" ng-disabled="bill.paid"></td>
-                        <td><input type="text" ng-model="bill.notes" placeholder="Notes"></td>
-                        <td><input type="checkbox" ng-model="bill.paid" ng-disabled="bill.disabled"></td>
-                    </tr>
-                    </tbody>
-
-                </table>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-lg-offset-1 col-sm-12">
+                    <h3>Charges</h3>
+                    <div class="form-group" ng-repeat="charge in charges">
+                        <label for="charge-for-{{charge.user.id}}">{{charge.user.firstName}} {{charge.user.lastName}}</label>
+                        <input type="checkbox" ng-model="charge.selected" id="charge-for-{{charge.user.id}}"/>
+                        <table class="table" ng-show="charge.selected">
+                            <thead>
+                            <th>Rent</th>
+                            <th>Bills</th>
+                            <th>Notes</th>
+                            <th>Is paid</th>
+                            </thead>
+                            </th>
+                            <tbody>
+                            <tr>
+                                <td><input type="number" ng-model="charge.rent" ng-disabled="charge.paid"></td>
+                                <td><input type="number" ng-model="charge.bills" ng-disabled="charge.paid"></td>
+                                <td><input type="text" ng-model="charge.notes" placeholder="Notes"></td>
+                                <td><input type="checkbox" ng-model="charge.paid"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-info" type="button" ng-click="calculateCharges()">Calculate charges</button>
+                </div>
             </div>
 
-            <h3>Charges</h3>
-            <div class="form-group" ng-repeat="charge in charges">
-                <label for="charge-for-{{charge.user.id}}">{{charge.user.firstName}} {{charge.user.lastName}}</label>
-                <input type="checkbox" ng-model="charge.selected" id="charge-for-{{charge.user.id}}"/>
-                <table class="table" ng-show="charge.selected">
-                    <thead>
-                    <th>Rent</th>
-                    <th>Bills</th>
-                    <th>Notes</th>
-                    <th>Is paid</th>
-                    </thead>
-                    </th>
-                    <tbody>
-                    <tr>
-                        <td><input type="number" ng-model="charge.rent" ng-disabled="charge.paid"></td>
-                        <td><input type="number" ng-model="charge.bills" ng-disabled="charge.paid"></td>
-                        <td><input type="text" ng-model="charge.notes" placeholder="Notes"></td>
-                        <td><input type="checkbox" ng-model="charge.paid"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <button class="btn btn-info" type="button" ng-click="calculateCharges()">Calculate charges</button>
 
             <div class="pull-right">
                 <button class="btn btn-primary" type="button" ng-click="save()">Save</button>
