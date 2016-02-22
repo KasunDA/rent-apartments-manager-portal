@@ -5,6 +5,8 @@ Marek Stabla
 
 Tenants-manager is application for the management of the tenants in the apartment.It allows you to track rent, bills, and other expenses for the residents and the landlord.
 
+This application was created in order to evaluate project at university. It contains only the required functionality.
+
 ### Installation
 
 * Install Node.js
